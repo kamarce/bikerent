@@ -24,22 +24,41 @@ namespace BikeRent
 
 
             var dbContext = new BikeRentContext();
-            IBikeRepository repository = new MyBikeRepository(dbContext);
+            IBikeRepository bikeRepository = new MyBikeRepository(dbContext);
 
-            Console.WriteLine("Bikes in database\n-----------");
+            IUserRepository userRepository = new UserRepository(dbContext);
+         
 
 
-            foreach (var bike in repository.GetBikes())
-            {
-                Console.WriteLine("BikeId:   {0}\nBikeName: {1}\n-------", bike.BikeId, bike.Name);
-            }
 
+
+            PrintAll(bikeRepository,userRepository);
 
             Console.ReadKey();
 
 
 
         }
+
+
+        static void PrintAll(IBikeRepository repoBike, IUserRepository repoUser) {
+
+            Console.WriteLine("Bikes in database\n-----------");
+            foreach (var bike in repoBike.GetBikes())
+            {
+                Console.WriteLine("BikeId:   {0}\nBikeName: {1}\n-------", bike.BikeId, bike.Name);
+            }
+
+            Console.WriteLine("Users in database\n-----------");
+            foreach (var bike in repoUser.GetUsers())
+            {
+                Console.WriteLine("UserId:   {0}\nUserName: {1}\n-------", bike.UserId, bike.Name);
+            }
+
+        }
+
+
+       
 
         static void DeleteAllData(BikeRentContext dbContext)
         {

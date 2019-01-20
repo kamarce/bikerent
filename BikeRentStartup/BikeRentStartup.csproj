@@ -51,8 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\BikeRentContext.cs" />
+    <Compile Include="Repositories\BikeRentUof.cs" />
     <Compile Include="Repositories\Classes\MyBikeRepository.cs" />
+    <Compile Include="Repositories\Classes\UserRepository.cs" />
     <Compile Include="Repositories\Interfaces\IBikeRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
     <Compile Include="SeedData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
